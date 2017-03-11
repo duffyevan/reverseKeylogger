@@ -1,5 +1,6 @@
 import socket
 import sys
+import time
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = "localhost"
@@ -10,9 +11,11 @@ print "Listening"
 s.listen(5)
 while True:
 	c,addr = s.accept()
+	t = time.time()
 	print "Got Connection From Client at", addr
 	while True:
-		rchar = s.recv(100).decode("ascii")
+		if time.time() - t >= 25:
+			break
+		rchar = c.recv(100).decode("ascii")
 		if rchar:
 			print rchar
-
