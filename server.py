@@ -2,7 +2,7 @@ import socket
 
 s = socket.socket()
 host = socket.gethostname()
-port = 112233
+port = 11223
 s.bind((host,port))
 
 s.listen(5)
