@@ -18,4 +18,4 @@ while True:
 			break
 		rchar = c.recv(100).decode("ascii")
 		if rchar:
-			print rchar
+			sys.stdout.write(rchar)
